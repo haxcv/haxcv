@@ -1,0 +1,31 @@
+<div fn-init >
+	{%
+     
+     var phone = prompt("Enter your Phone");
+	  {{
+		    <h3>Contact Us </h3>
+			<form>
+				<label>
+				  <div>	  	
+					<input type="Email" name="email" placeholder="Email">
+				  </div>		
+				</label>
+				<label>
+				  <div>	  	
+					<input type="text" name="phone" placeholder="Phone *" value="{{+phone+}}">
+				  </div>		
+				</label>
+				<label>
+				  <div>	  	
+					<textarea placeholder="write message" name="msg"></textarea>
+				  </div>		
+				</label>
+				<label>
+				  <div>	  	
+					<button>Send</button>
+				  </div>		
+				</label>
+			</form>
+	    }}
+	%}
+</div>
