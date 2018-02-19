@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Router </title>
+	<script type="text/javascript" src="js/haxcv.1.0.1.js"></script>
+</head>
+<body>
+
+	<div myView ></div>
+	<a href="#home">home</a>
+	<a href="#about">About Us</a>
+	<a href="#contact">Contact Us</a>
+	<a href="#component">view users</a>
+
+	<script type="text/javascript">
+		var app =  Router.View('myView');
+		    app.createSPA({
+		    	pg1:{
+		    		when:"home",
+		    		title:"Welcome to haxcv",
+		    		url:"/"
+		    	},
+		    	pg2:{
+		    		when:"about",
+		    		title:"About Us",
+		    		url:"pages/about.html"
+		    	},
+		    	pg3:{
+		    		when:"contact",
+		    		title:"Contact Us",
+		    		url:"pages/contact.html"
+		    	}
+		    });
+	</script>
+</body>
+</html>
