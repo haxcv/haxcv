@@ -10,7 +10,7 @@ Haxcv is Javascript framework based on the idea of ease of work and flexibility 
 
 > You must have a background or knowledge about JSON
 
-###### what it's new ?
+## what it's new ?
 
 with jsH you can control with content by Javascript Expression
 another word you don't need to use DOM Selector to render Content
@@ -35,7 +35,7 @@ ok let's create a simple Component
 > Route
 
 ## jsH :- 
-```
+```html
 <div fn-init >
   {%
     var name = prompt("what is your name ?");
@@ -51,6 +51,45 @@ ok let's create a simple Component
   %}
 </div>
 ```
+
+## Components :- 
+```javascript
+
+<script type="text/jsh"  myComponent >
+ 	<table>
+ 		<tr>
+ 		<td>Name</td>
+ 		<td>Price</td>
+ 		</tr>
+{%
+var items = [
+{name:"iphone" , price:"180.56 $"},
+{name:"car"    , price:"12,000.00 $"},
+{name:"Bitcoin" , price:"14,443 $"}
+];
+ for(var i =0; i < items.length; i++)
+ {
+  {{
+  	    <tr>
+ 		<td>{{+items[i].name+}}</td>
+ 		<td>{{+items[i].price+}}</td>
+ 		</tr>
+  }} 
+ }
+%}
+	</table>
+</script> 
+```
+
+# Note :
+
+``` 
+variable case :
+if you need to call variable from external component make sure that variable is defined as global with window Object
+but the good news is any data can be accessed from script whatever the location of the tag
+because jsH is working when the DOM load
+```
+
 
 
 
