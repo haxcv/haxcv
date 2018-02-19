@@ -61,22 +61,22 @@ ok let's create a simple Component
  		<td>Name</td>
  		<td>Price</td>
  		</tr>
-{%
-var items = [
-{name:"iphone" , price:"180.56 $"},
-{name:"car"    , price:"12,000.00 $"},
-{name:"Bitcoin" , price:"14,443 $"}
-];
- for(var i =0; i < items.length; i++)
- {
-  {{
+    {%
+	var items = [
+	{name:"iphone" , price:"180.56 $"},
+	{name:"car"    , price:"12,000.00 $"},
+	{name:"Bitcoin" , price:"14,443 $"}
+	];
+	 for(var i =0; i < items.length; i++)
+	 {
+	  {{
   	    <tr>
  		<td>{{+items[i].name+}}</td>
  		<td>{{+items[i].price+}}</td>
  		</tr>
-  }} 
- }
-%}
+	  }} 
+	 }
+    %}
 	</table>
 </script> 
 ```
@@ -85,8 +85,10 @@ var items = [
 
 ``` 
 variable case :
-if you need to call variable from external component make sure that variable is defined as global with window Object
-but the good news is any data can be accessed from script whatever the location of the tag
+if you need to call variable from external component make sure that variable 
+is defined as global with window Object
+but the good news is any data can be accessed 
+from script whatever the location of the tag
 because jsH is working when the DOM load
 ```
 
