@@ -30,7 +30,7 @@
 var root = function (sel) {
   try {
     Haxcv.Fn.Self;
-    if (this.This === Haxcv.Fn) {
+    if (this.window === Haxcv.Fn) {
       return new _(sel);
     }
     if (sel && typeof sel == 'string') {
@@ -126,7 +126,7 @@ var root = function (sel) {
   } catch (er) {
   }
 }
-window.Root = function (arg, documents) {
+This.Root = function (arg, documents) {
   if (this.This === Haxcv.Fn) {
     return new $(arg, documents);
   }
@@ -5126,6 +5126,7 @@ __Entry:function()
 
   },
 
+
   __spa:function(e)
   {     
       var url = e.target.href || "";
@@ -5383,10 +5384,7 @@ __Entry:function()
 
 
   },
-  __setSPA:function(){
-     window.addEventListener('pushstate' , function(e){
-      
-     });
+  __setSPA:function(){     
       var p = this;
      
      document.body.addEventListener('click' , function(e){
@@ -5432,12 +5430,12 @@ __Entry:function()
     __router:function()
     {
             
-         var el = _("a[fn-click]").el;
+         var el = _("a[fn-spa]").el;
           var p = this;
          window.addEventListener('popstate', function(e){          
         var data = e.state;   
         for (var i = 0; i < el.length; i++) {
-          var hr = this.isAttr(el[i] , "fn-target");
+          var hr = p.isAttr(el[i] , "fn-spa");
           if(hr && el[i].href == location.href ){                        
               Obj.Ajax({
                 url:location.href,
