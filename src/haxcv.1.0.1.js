@@ -26,11 +26,8 @@
  *
  *
 **/
-var This = window,
-S = this;
-This.Root = null;
-This.init = null;
-This.root = function (sel) {
+
+var root = function (sel) {
   try {
     Haxcv.Fn.Self;
     if (this.This === Haxcv.Fn) {
@@ -129,7 +126,7 @@ This.root = function (sel) {
   } catch (er) {
   }
 }
-This.Root = function (arg, documents) {
+window.Root = function (arg, documents) {
   if (this.This === Haxcv.Fn) {
     return new $(arg, documents);
   }
