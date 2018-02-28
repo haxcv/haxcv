@@ -1,4 +1,6 @@
-# haxcv Js
+<img src="https://haxcv.org/files/img/ico.svg" width="200" />
+
+# haxcv Js 
 
 
 ## what is Haxcv ?
@@ -91,6 +93,45 @@ but the good news is any data can be accessed
 from script whatever the location of the tag
 because jsH is working when the DOM load
 ```
+
+### Docs 
+ <a href="https://haxcv.org/docs/Intro" fn-spa="docs-view" >
+    	<li  class="_share " >Intro</li>
+    </a>					
+	    <a href="https://haxcv.org/docs/attributes" fn-spa="docs-view" >
+    	<li  class="_share " >attributes</li>
+    </a>					
+	    <a href="https://haxcv.org/docs/jsH" fn-spa="docs-view" >
+    	<li  class="_share " >jsH</li>
+    </a>					
+	    <a href="https://haxcv.org/docs/Components" fn-spa="docs-view" >
+    	<li  class="_share " >Components</li>
+    </a>					
+	    <a href="https://haxcv.org/docs/Events" fn-spa="docs-view" >
+    	<li  class="_share " >Events</li>
+    </a>					
+	    <a href="https://haxcv.org/docs/SPA" fn-spa="docs-view" >
+    	<li  class="_share " >SPA</li>
+    </a>					
+	    <a href="https://haxcv.org/docs/Modules" fn-spa="docs-view" >
+    	<li  class="_share " >Modules</li>
+    </a>					
+		<a href="https://haxcv.org/docs/simple JSON" fn-spa="docs-view">
+		<li    class="sub-li _share" >simple JSON </li>
+	</a>
+		<a href="https://haxcv.org/docs/HTTP Request" fn-spa="docs-view">
+		<li    class="sub-li _share" >HTTP Request</li>
+	</a>
+	    <a href="https://haxcv.org/docs/Ajax" fn-spa="docs-view" >
+    	<li  class="_share " >Ajax</li>
+    </a>					
+		<a href="https://haxcv.org/docs/Form" fn-spa="docs-view">
+		<li    class="sub-li _share" >Form</li>
+	</a>
+	    <a href="https://haxcv.org/docs/Router" fn-spa="docs-view" >
+    	<li  class="_share " >Router</li>
+    </a>					
+	
 
 
 
