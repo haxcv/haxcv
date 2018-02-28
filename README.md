@@ -93,7 +93,95 @@ but the good news is any data can be accessed
 from script whatever the location of the tag
 because jsH is working when the DOM load
 ```
+### Module -> Controller
+```html
+<div fn-module="myController" >
+   <div >Name : <span v-scope="myController.name"></span> </div>
+   <div >Age  : <span v-scope="myController.age"></span>  </div>
+   <div fn-click fn-exec="myController.alert(5 , 5)" >alert</div>
+</div>   
 
+<script type="text/javascript">
+haxcv.module("myController" , ($xes) => { 
+   
+    myController.name = "Manassa Joseph";
+    myController.age  = 23;
+    myController.alert = function(a , b){
+       alert( a + b);
+    }
+
+});
+</script> 
+```
+
+### Simple Directives 
+```html
+<div fn-click fn-store="div" sel >hello from DIV</div>       
+<div fn-click fn-store="div" fn-copy="sel">use above div </div>       
+<div fn-click fn-store="div" fn-script="myScript">use script Component </div>       
+<div fn-click fn-store="div" fn-call="div">use div variable </div>       
+<div fn-click fn-store="div" fn-exec="myfun()">use function </div>       
+<script type="text/javascript" >
+function myfun(){ alert('hello');}
+</script>
+<script type="text/jsh" myScript >
+{%
+ {{
+   <p>date is {{+new Date()+}}</p>
+ }}
+%}
+</script>     
+<div v-render="div">div var will be show here</div>  
+```
+
+### Route 
+```html
+<script>
+var app =  Router.View("fn-data");
+	app.createSPA({
+	    v1:{
+	        when:"page1",
+	        title:"",
+	        url:"page1.php"
+	    },
+	    v2:{
+	        when:"about",
+	        title:"",
+	        url:"page2.php"
+	    },
+	    v3:{
+	        when:"contact",
+	        title:"",
+	        url:"page3.php"
+	    },
+});
+</script>   
+```
+> Route to Component
+ you can route Component with jsH with getComponent key but you need to unset url key .
+```html
+<div fn-data ></div>  
+<a href="#login" >login</a> 
+
+<Component hidden loginComponent >
+  <form>
+     <input type="text" name="user" />
+     <input type="password" name="pass" />
+     <input type="submit"   name="login" value="login" />
+  </form>
+</Component>
+    
+<script>
+var app =  Router.View("fn-data");
+	app.createSPA({	   
+	    login:{
+	        when:"login",
+	        title:"",
+	        getComponent:"loginComponent"
+	    },
+});
+</script>     
+```
 ### Docs 
  <a href="https://haxcv.org/docs/Intro" fn-spa="docs-view" >
     	<li  class="_share " >Intro</li>
