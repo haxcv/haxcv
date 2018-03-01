@@ -33,7 +33,7 @@ https://haxcv.org
             obj.__domReady();
             window.haxcv = obj;
             window.Vum = obj;
-            window.Router = obj;     
+            window.Router = obj;      
      }else{
       // disbale repeating for best performance 
       console.warn('haxcv is already running '); 
