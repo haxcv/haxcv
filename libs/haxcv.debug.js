@@ -391,6 +391,7 @@ https://haxcv.org
           eval(s);
         }
         p.__setEvents();
+        p.__setSPA();
       }
     })
     },
@@ -626,6 +627,7 @@ https://haxcv.org
               el.innerHTML = ds;
               p.__fnApp(el.querySelectorAll('*[fn-init]'));
               _('*[' + hr + ']').html(el.innerHTML);
+              p.__setSPA();
             }
           });
           e.preventDefault();
