@@ -35,7 +35,7 @@ https://haxcv.org
             window.Vum = obj;
             window.Router = obj;     
      }else{
-      // disbale repeating for best performance 
+      // disable repeating for best performance 
       console.warn('haxcv is already running '); 
      }
   
@@ -390,7 +390,9 @@ https://haxcv.org
           var s = af + '()';
           eval(s);
         }
+        p.__setSPA();
         p.__setEvents();
+
       }
     })
     },
@@ -573,7 +575,7 @@ https://haxcv.org
     },
     __setSPA: function () {
     var p = this;
-    document.body.addEventListener('click', function (e) {
+    document.body.addEventListener('click', function (e) {      
       if (document.activeElement.nodeName == 'A') {
         if (p.isAttr(document.activeElement, 'fn-spa')) {
           e.preventDefault();
@@ -626,6 +628,7 @@ https://haxcv.org
               el.innerHTML = ds;
               p.__fnApp(el.querySelectorAll('*[fn-init]'));
               _('*[' + hr + ']').html(el.innerHTML);
+              p.__setSPA();
             }
           });
           e.preventDefault();
