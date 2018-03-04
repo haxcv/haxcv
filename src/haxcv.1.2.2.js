@@ -1,22 +1,6 @@
 /**
 MIT License
-Copyright (c) 2018 haxcv
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
+v 1.2.2
 https://haxcv.org
 
 */
@@ -247,10 +231,13 @@ https://haxcv.org
               var scp = eval(ctrl + ' =  ' + arguments[0]);
               var el = document.querySelector(inial || 'fdskopl');
               var source = el.innerHTML;
-              obj.__Entry('fn-module=' + this.source, source);
+              
+                 _('*[fn-module=' + this.source + ']').html(obj.compile(source));
+              //obj.__Entry('fn-module=' + this.source, source);
               if (function_exists(fun)) {
                 fun(scp);
               }
+            
             }
           });
           return this;
@@ -290,7 +277,7 @@ https://haxcv.org
     },
     __ctrl: function ()
     {
-      return _('*[fn-module=' + (arguments[0] || '0xf9') + ']').el;
+      return _('*[fn-module=' + (arguments[0] || 'f9') + ']').el;
     },
     __getVal: function (e) {
       var target = e.target.nodeType == 3 ? e.target.parentElement : e.target;
@@ -392,9 +379,10 @@ https://haxcv.org
         }
         p.__setSPA();
         p.__setEvents();
+        p.__formAjax();
 
       }
-    })
+    });
     },
     __EventHandler: function () {
     var em,
@@ -629,6 +617,7 @@ https://haxcv.org
               p.__fnApp(el.querySelectorAll('*[fn-init]'));
               _('*[' + hr + ']').html(el.innerHTML);
               p.__setSPA();
+              p.__formAjax();
             }
           });
           e.preventDefault();
@@ -1491,7 +1480,7 @@ https://haxcv.org
                   xhr.setRequestHeader('Content-Type', json.data == '[object FormData]' ? 'multipart/form-data; charset=utf-8; boundary=' + Math.random().toString().substr(2)  : Parent.xParseData[0][2]([dataType,
                   XmlStatus]));
                 }
-                xhr.setRequestHeader('X-REQUESTED-WITH', 'XMLHttpRequest');
+                
                 //alert(json.data);
                 xhr[index.Event[3]] = function (e) {
                   var Request_info = {
@@ -1581,6 +1570,10 @@ https://haxcv.org
                   json.data = '';
                 }
                 );
+                
+                xhr.addEventListener('open' , function () {
+        this.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    });
                 xhr.send(json.data == '[object FormData]' ? json.data : e.DataRoll);
                 e.DataRoll = '';
                 json.data = '';
@@ -3071,9 +3064,7 @@ https://haxcv.org
           B: long & 255
         };
       }
-      function newElm(elm) {
-        return index.Default[1][createElm](elm);
-      }
+      
       Haxcv.Fn.parentNode = 'parentNode';
       Haxcv.Fn.createElm = 'createElement';
       Haxcv.Fn.parentElm = 'parentElement';
@@ -3132,7 +3123,10 @@ https://haxcv.org
         return res;
       }
 
-
+      function newElm(elm) {
+        return index.Default[1][createElm](elm);
+      }
+      
       function empty(str) {
       if (new RegExp(/^\s*$/).test(str)) {
         return true;
@@ -3240,3 +3234,4 @@ https://haxcv.org
 
 
 });
+
