@@ -6,6 +6,8 @@ https://haxcv.org
 */
 
 
+
+
 (function(){ 
 
   var o = arguments[0]();
@@ -377,7 +379,7 @@ https://haxcv.org
           var s = af + '()';
           eval(s);
         }
-        p.__setSPA();
+        
         p.__setEvents();
         p.__formAjax();
 
@@ -564,7 +566,7 @@ https://haxcv.org
     __setSPA: function () {
     var p = this;
     document.body.addEventListener('click', function (e) {      
-      if (document.activeElement.nodeName == 'A') {
+      if (document.activeElement.nodeName == 'A') {        
         if (p.isAttr(document.activeElement, 'fn-spa')) {
           e.preventDefault();
           p.__spa(e);
@@ -602,6 +604,7 @@ https://haxcv.org
     var p = this;
     window.addEventListener('popstate', function (e) {
       var data = e.state;
+      console.log(e.state)
       for (var i = 0; i < el.length; i++) {
         var hr = p.isAttr(el[i], 'fn-spa');
         if (hr && el[i].href == location.href) {
@@ -616,7 +619,7 @@ https://haxcv.org
               el.innerHTML = ds;
               p.__fnApp(el.querySelectorAll('*[fn-init]'));
               _('*[' + hr + ']').html(el.innerHTML);
-              p.__setSPA();
+              
               p.__formAjax();
             }
           });
@@ -1213,6 +1216,18 @@ https://haxcv.org
               }
               return this;
             },
+            click: function () {
+              if (this.Class) {
+                this.el.forEach(function (elm) {
+                  elm.click();
+                });
+              } else {
+               
+                   this.el.click();                
+                   
+              }
+              return this;
+            },
             Toggle: function () {
               if (this.Class) {
                 this.el.forEach(function (elm) {
@@ -1570,7 +1585,7 @@ https://haxcv.org
                   json.data = '';
                 }
                 );
-                
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                 xhr.addEventListener('open' , function () {
         this.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     });
@@ -2832,7 +2847,7 @@ https://haxcv.org
           return $_GET(a);
         },
       }
-      Haxcv.Fn.$_GET = function (a, s) {
+      Haxcv.Fn.$_GET = function $_GET(a, s) {
         if (s == isset) {
           var get;
           var request = Haxcv.Fn.location.search;
@@ -2857,14 +2872,14 @@ https://haxcv.org
         }
       }
       Haxcv.Fn.Form = $_GET;
-      Haxcv.Fn.$_REQUEST = function (a, s) {
+      Haxcv.Fn.$_REQUEST = function $_REQUEST(a, s) {
         if (s == isset) {
           return $_GET(a, isset);
         } else {
           return $_GET(a);
         }
       }
-      $_COOKIE = function (a, s) {
+      $_COOKIE = function $_COOKIE(a, s) {
         if (s == isset) {
           var request = document.cookie;
           request = request.split('; ');
@@ -2924,7 +2939,7 @@ https://haxcv.org
         'location'
       ];
       Haxcv.Fn.Br = Haxcv.Fn.location;
-      window.$_SERVER = function (a) {
+      window.$_SERVER = function $_SERVER(a) {
         if (a == 'HOST' || a == 'HOST_NAME') {
           return Br['host'];
         } else if (a == 'HREF') {
@@ -3039,7 +3054,7 @@ https://haxcv.org
         Haxcv.Fn['$' + name] = value;
         Haxcv.Fn[name] = value;
       }
-      function RGBtohex(r, g, b)
+      window.RGBtohex = function RGBtohex(r, g, b)
       {
         var R = IntToHex(r).replace('0x', ''),
         G = IntToHex(g).replace('0x', ''),
@@ -3055,7 +3070,7 @@ https://haxcv.org
         }
         return '#' + R + G + B;
       }
-      function hexToRGB(hex)
+      window.hexToRGB = function hexToRGB(hex)
       {
         var long = parseInt(hex.replace(/^#/, ''), 16);
         return {
@@ -3088,7 +3103,7 @@ https://haxcv.org
       ];
       Haxcv.Fn.DataURL = 'readAsDataURL';
       Haxcv.Fn.TextData = 'readAsText';
-      function File_Reader(files, type, fun) {
+      window.File_Reader = function File_Reader(files, type, fun) {
         var reader = new FileReader(),
         nf = 'readAsDataURL',
         tGET;
@@ -3123,11 +3138,11 @@ https://haxcv.org
         return res;
       }
 
-      function newElm(elm) {
+      window.newElm = function newElm(elm) {
         return index.Default[1][createElm](elm);
       }
       
-      function empty(str) {
+      window.empty  = function empty(str) {
       if (new RegExp(/^\s*$/).test(str)) {
         return true;
       } else {
@@ -3136,7 +3151,7 @@ https://haxcv.org
       }
 
 
-      function isset(val) {
+      window.isset = function (val) {
       if (!in_array([undefined,
       null,
       false], val)) {
@@ -3145,7 +3160,7 @@ https://haxcv.org
         return false;
       }
       }
-      function function_exists(val) {
+      window.function_exists = function (val) {
       if (!in_array([undefined,
       null], val) && typeof val == 'function') {
         return true;
@@ -3153,7 +3168,7 @@ https://haxcv.org
         return false;
       }
       }
-      function FormEmpty(str, fun, error, Required) {
+      window.FormEmpty = function FormEmpty(str, fun, error, Required) {
       var NAMES = '',
       N = [
       ];
@@ -3234,4 +3249,5 @@ https://haxcv.org
 
 
 });
+
 
